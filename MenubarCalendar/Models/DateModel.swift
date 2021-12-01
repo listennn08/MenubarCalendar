@@ -85,7 +85,7 @@ class DateModel: ObservableObject {
                 let prevMonth = Calendar.current.date(byAdding: DateComponents(month: 0, day: -1), to: self.currentDate.startOfMonth())
                 let prevMonthComp = Calendar.current.dateComponents(in: TimeZone.current, from: prevMonth!)
 
-                if (startWeekDay - 2 > 0) {
+                if (startWeekDay - 1 > 0) {
                     _weekList = (0...startWeekDay - 2).map({
                         CalendarItem(date: String(prevMonthComp.day! - $0), isCurrentDate: false, isCurrentMonth: false)
                     }).reversed()
