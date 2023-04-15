@@ -14,10 +14,7 @@
 		BA0D1B5B26FE2406000E1599 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0D1B5926FE2406000E1599 /* Main.storyboard */; };
 		BA4CADB526FF688E003D62BD /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CADB426FF688E003D62BD /* DateModel.swift */; };
 		BA4CADBB26FF68C3003D62BD /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CADBA26FF68C3003D62BD /* GridView.swift */; };
-		BA68308227076D5F000EF6A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68308127076D5F000EF6A9 /* AppDelegate.swift */; };
 		BA70BA7E2707634E00A741AC /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA70BA7D2707634E00A741AC /* ServiceManagement.framework */; };
-		BACB2EC2270C8E0A0001779B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACB2EC1270C8E0A0001779B /* main.swift */; };
-		BAD6DCF8270CABF600A3A467 /* LauncherApplication.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA68307F27076D5F000EF6A9 /* LauncherApplication.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +24,6 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				BAD6DCF8270CABF600A3A467 /* LauncherApplication.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,12 +41,8 @@
 		BA4CADB426FF688E003D62BD /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		BA4CADBA26FF68C3003D62BD /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		BA68307F27076D5F000EF6A9 /* LauncherApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA68308127076D5F000EF6A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA68308D27076D60000EF6A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA68308E27076D60000EF6A9 /* LauncherApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LauncherApplication.entitlements; sourceTree = "<group>"; };
 		BA70BA7D2707634E00A741AC /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		BA70BA7F2707635800A741AC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		BACB2EC1270C8E0A0001779B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				BA0D1B4F26FE2403000E1599 /* MenubarCalendar */,
-				BA68308027076D5F000EF6A9 /* LauncherApplication */,
 				BA0D1B4E26FE2403000E1599 /* Products */,
 				BA70BA7C2707634E00A741AC /* Frameworks */,
 			);
@@ -139,17 +130,6 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		BA68308027076D5F000EF6A9 /* LauncherApplication */ = {
-			isa = PBXGroup;
-			children = (
-				BA68308127076D5F000EF6A9 /* AppDelegate.swift */,
-				BA68308D27076D60000EF6A9 /* Info.plist */,
-				BA68308E27076D60000EF6A9 /* LauncherApplication.entitlements */,
-				BACB2EC1270C8E0A0001779B /* main.swift */,
-			);
-			path = LauncherApplication;
-			sourceTree = "<group>";
-		};
 		BA70BA7C2707634E00A741AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +184,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1210;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					BA0D1B4C26FE2403000E1599 = {
 						CreatedOnToolsVersion = 12.1;
@@ -269,8 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BACB2EC2270C8E0A0001779B /* main.swift in Sources */,
-				BA68308227076D5F000EF6A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +300,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -383,6 +362,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -409,8 +389,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MenubarCalendar/MenubarCalendar.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MenubarCalendar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MenubarCalendar/Info.plist;
@@ -431,8 +413,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MenubarCalendar/MenubarCalendar.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MenubarCalendar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MenubarCalendar/Info.plist;
@@ -453,9 +437,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"LauncherApplication/Preview Content\"";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LauncherApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -476,9 +462,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"LauncherApplication/Preview Content\"";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LauncherApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -17,7 +17,7 @@ extension Date {
     }
 }
 
-/// 日期物件
+/// date object
 struct CalendarItem: Hashable {
     var date: String
     var isCurrentDate: Bool
@@ -30,7 +30,7 @@ struct CalendarItem: Hashable {
     }
 }
 
-/// 日期資料模型
+/// date model
 class DateModel: ObservableObject {
     @Published var currentDate: Date = Date()
     @Published var today: Date = Date()
@@ -43,9 +43,14 @@ class DateModel: ObservableObject {
     @Published var minute: String = ""
     @Published var formattedToday: String = ""
     @Published var calendarList: [CalendarItem] = []
+    @Published var locale: String = ""
+    
 
-    /// 建構子
     init() {
+        if let language = Locale.current.languageCode {
+            locale = Locale.current.localizedString(forLanguageCode: language) ?? ""
+        }
+
         self.today = Date()
         self.currentDate = Date()
         self.getCurrentData()
@@ -68,8 +73,8 @@ class DateModel: ObservableObject {
         self.formattedToday = self.setFormattedTody()
     }
 
-    /// 設定當月日期清單
-    /// - Returns: 日期清單
+    /// Set current date list
+    /// - Returns: Date list
     private func setCalendarList() -> [CalendarItem] {
         var _calendarList: [[CalendarItem]] = []
         var _weekList: [CalendarItem] = []
@@ -85,6 +90,7 @@ class DateModel: ObservableObject {
                 let prevMonth = Calendar.current.date(byAdding: DateComponents(month: 0, day: -1), to: self.currentDate.startOfMonth())
                 let prevMonthComp = Calendar.current.dateComponents(in: TimeZone.current, from: prevMonth!)
 
+                // add previous date to fill columns
                 if (startWeekDay - 1 > 0) {
                     _weekList = (0...startWeekDay - 2).map({
                         CalendarItem(date: String(prevMonthComp.day! - $0), isCurrentDate: false, isCurrentMonth: false)
@@ -120,6 +126,7 @@ class DateModel: ObservableObject {
             }
             
             if item == end.day! {
+                // add next month date to fill columns
                 _weekList += Array(1...7 - _weekList.count).map({
                     CalendarItem(date: String(format: "%02d", $0), isCurrentDate: false, isCurrentMonth: false)
                 })
@@ -130,9 +137,9 @@ class DateModel: ObservableObject {
         return _calendarList.flatMap{ $0 }
     }
     
-    /// 取得現在日期格式化
-    /// - Parameter type: 格式化類型
-    /// - Returns: 已格式化日期
+    /// Get current formatted date
+    /// - Parameter type: formatedt type
+    /// - Returns: Formatted date
     func getCurrentDate(type: String) -> String {
         let _dateFormatter = DateFormatter()
         switch type {
@@ -153,19 +160,19 @@ class DateModel: ObservableObject {
             : _dateFormatter.string(from: self.currentDate)
     }
     
-    /// 移動日期到今天
+    /// Move to today
     internal func goToToday() {
         self.currentDate = self.today
         self.getCurrentData()
     }
 
-    /// 減少月份
+    /// Move to previous month
     internal func minusMonth() {
         self.currentDate = Calendar.current.date(byAdding: DateComponents(month: -1), to: self.currentDate)!
         self.getCurrentData()
     }
 
-    /// 增加月份
+    /// Move to next month
     internal func addMonth() {
         self.currentDate = Calendar.current.date(byAdding: DateComponents(month: 1), to: self.currentDate)!
         self.getCurrentData()
@@ -174,8 +181,17 @@ class DateModel: ObservableObject {
     
     internal func setFormattedTody() -> String {
         let formatter = DateFormatter()
-        formatter.locale =  Locale(identifier: "zh_Hant_TW")
-        formatter.dateFormat = "MMMdd日 EEE HH:mm:ss"
+        var formatDateString: String
+        switch self.locale {
+        case "zh_Hant_TW":
+            formatDateString = "MMMdd日 EEE"
+        default:
+            formatDateString = "YYYY/MM/dd EEE"
+        }
+        let formatTimeString = "HH:mm:ss"
+        formatter.locale =  Locale(identifier: self.locale)
+
+        formatter.dateFormat = "\(formatDateString) \(formatTimeString)"
         return formatter.string(from: self.today)
     }
 }

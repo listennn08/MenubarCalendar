@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Calendar body of dates
 struct GridView<Content: View, T: Hashable>: View {
     private let columns: Int
     private var list: [[T]] = []
@@ -53,8 +54,6 @@ struct GridView<Content: View, T: Hashable>: View {
             }
             Spacer()
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        
     }
     
 }

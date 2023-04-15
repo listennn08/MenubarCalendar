@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Create the window and set the content view.
         let popover = NSPopover()
-        popover.contentSize = NSSize(width: 400, height: 400)
+        popover.contentSize = NSSize(width: 424, height: 324)
         popover.behavior = .transient
         popover.contentViewController = NSHostingController(rootView: contentView)
         
@@ -70,11 +70,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 
-}
-
-
-struct AppDelegate_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
 }

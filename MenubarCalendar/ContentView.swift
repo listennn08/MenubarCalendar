@@ -8,7 +8,7 @@
 import SwiftUI
 import ServiceManagement
 
-struct BlueButtonStyle: ButtonStyle {
+struct RedButtonStyle: ButtonStyle {
 
     @State private var hoverActive = false
 
@@ -17,7 +17,7 @@ struct BlueButtonStyle: ButtonStyle {
             .padding(.horizontal, 8.0)
             .padding(.vertical, 4.0)
             .foregroundColor(Color.white)
-            .background(configuration.isPressed || hoverActive ? Color(red: 100, green: 1, blue: 1) : Color.red)
+            .background(configuration.isPressed || hoverActive ? Color(red: 0.8, green: 0.2, blue: 0.2) : Color.red)
             .cornerRadius(4.0)
             .onHover{ hovering in
                 hoverActive = hovering
@@ -44,8 +44,8 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView{
-            VStack{
-                HStack(alignment: .center){
+            VStack(alignment: .leading){
+                HStack(){
                     Button(action: { dateModel.minusMonth() }) {
                         Text("<")
                     }
@@ -54,9 +54,11 @@ struct ContentView: View {
                     Text(dateModel.month + " " + dateModel.year)
                         .font(.headline)
                         .fontWeight(.bold)
+                        .font(.custom("Monaco", size: 12))
                     Spacer()
                     Button(action: { dateModel.goToToday() }) {
                         Text("Today")
+                            .font(.custom("Monaco", size: 12))
                     }
                     Button(action: { dateModel.addMonth() }) {
                         Text(">")
@@ -73,10 +75,10 @@ struct ContentView: View {
                             .foregroundColor(
                                 week == "sat" || week == "sun" ? Color.red : nil
                             )
+                            .font(.custom("Monaco", size: 12))
                     }
                 }
                 .padding([.leading, .bottom, .trailing])
-                
                 GridView(columns: 7, list: dateModel.calendarList) { item in
                     Text(item.date)
                         .fontWeight(.bold)
@@ -88,13 +90,11 @@ struct ContentView: View {
                                     : Color.gray
                         )
                         .font(.custom("Monaco", size: 12))
-                        
                 }
-                
+                Spacer()
+                Spacer()
                 HStack(spacing: 24.0){
-//                    Toggle(isOn: $launchAtLogin) {
-//                        Text("Launch at Login")
-//                    }
+                    Spacer()
                     Spacer()
                     Button(action: {
                         NSApplication.shared.terminate(self)
@@ -102,13 +102,14 @@ struct ContentView: View {
                         Text("Quit")
                             .font(.custom("Monaco", size: 12))
                     }
-                    .buttonStyle(BlueButtonStyle())
+                    .buttonStyle(RedButtonStyle())
                 }
-                .padding(.all)
+                .padding(.horizontal, 25.0)
+                Spacer()
             }
+            .padding(.all, 12.0)
         }
-        .padding(.all)
-        .frame(width: 400.0, height: 300.0)
+         .frame(width: 424.0, height: 324.0)
     }
 }
 
