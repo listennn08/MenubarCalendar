@@ -17,13 +17,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
     var timer: Timer!
     @ObservedObject var dateModel = DateModel()
-//    @State private var autoLogin = true {
-//        didSet {
-//            SMLoginItemSetEnabled("com.listennn.MenubarCalendar" as CFString, autoLogin)
-//        }
-//    }
+
+    @State private var launchAtLogin = UserDefaults.standard.bool(forKey: "launchAtLogin")
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+//        setAutoLaunch()
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView(dateModel: dateModel)
         
@@ -47,6 +45,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getDate), userInfo: nil, repeats: true)
     }
+    
+//    private func setAutoLaunch() {
+//        
+//        if #available(macOS 13.0, *) {
+//            if launchAtLogin {
+//                try? SMAppService.mainApp.register()
+//                print("successful")
+//            } else {
+//                try? SMAppService.mainApp.unregister()
+//            }
+//        }
+//
+//        if !SMLoginItemSetEnabled(Constants.identifier as CFString, launchAtLogin) {
+//            print("Login item was not successful")
+//        }
+//    }
 
     @objc func getDate() {
         dateModel.setDate()

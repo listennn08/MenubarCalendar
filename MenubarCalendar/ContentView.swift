@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import ServiceManagement
+import LaunchAtLogin
 
 struct RedButtonStyle: ButtonStyle {
 
@@ -29,19 +29,9 @@ struct RedButtonStyle: ButtonStyle {
 struct ContentView: View {
     
     @ObservedObject var dateModel: DateModel
-    @State private var launchAtLogin = true {
-        didSet {
-            SMLoginItemSetEnabled(
-                Constants.helpBundleID as CFString,
-                launchAtLogin
-            )
-        }
-    }
-    
-    private struct Constants {
-        static let helpBundleID = "com.listennn.LauncherApplication"
-    }
+    @ObservedObject private var launchAtLogin = LaunchAtLogin.observable
 
+    
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
@@ -94,7 +84,7 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
                 HStack(spacing: 24.0){
-                    Spacer()
+                    Toggle("Launch at login", isOn: $launchAtLogin.isEnabled)
                     Spacer()
                     Button(action: {
                         NSApplication.shared.terminate(self)
