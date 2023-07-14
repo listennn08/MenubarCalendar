@@ -16,6 +16,7 @@
 		BA4CADBB26FF68C3003D62BD /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CADBA26FF68C3003D62BD /* GridView.swift */; };
 		BA70BA7E2707634E00A741AC /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA70BA7D2707634E00A741AC /* ServiceManagement.framework */; };
 		C990C6B32A618C9F00DB093E /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = C990C6B22A618C9F00DB093E /* LaunchAtLogin */; };
+		C9BE50562A61979F0083D9C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C9BE50552A61979F0083D9C2 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		BA4CADBA26FF68C3003D62BD /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		BA70BA7D2707634E00A741AC /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		BA70BA7F2707635800A741AC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C9BE50552A61979F0083D9C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 		BA0D1B4426FE2403000E1599 = {
 			isa = PBXGroup;
 			children = (
+				C9BE50552A61979F0083D9C2 /* README.md */,
 				BA0D1B4F26FE2403000E1599 /* MenubarCalendar */,
 				BA0D1B4E26FE2403000E1599 /* Products */,
 				BA70BA7C2707634E00A741AC /* Frameworks */,
@@ -186,6 +189,7 @@
 			files = (
 				BA0D1B5B26FE2406000E1599 /* Main.storyboard in Resources */,
 				BA0D1B5826FE2406000E1599 /* Preview Assets.xcassets in Resources */,
+				C9BE50562A61979F0083D9C2 /* README.md in Resources */,
 				BA0D1B5526FE2406000E1599 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
